@@ -1,20 +1,9 @@
--- ========================================
 -- UNIVERSITY RECORDS DATABASE SETUP
 -- STEP 1: DATABASE CREATION
 CREATE DATABASE IF NOT EXISTS university_records;
 USE university_records;
 
--- STEP 2: USER CREATION AND PERMISSIONS
--- Create user 'shafi' with remote access from any host
-CREATE USER IF NOT EXISTS 'shafi'@'%' IDENTIFIED BY 'Shafi123!';
-
--- Grant full privileges on university_records database
-GRANT ALL PRIVILEGES ON university_records.* TO 'shafi'@'%';
-
--- Apply permission changes
-FLUSH PRIVILEGES;
-
--- STEP 3: TABLE CREATION 
+-- STEP 2: TABLE CREATION 
 
 -- Departments: Foundation for academic structure
 CREATE TABLE IF NOT EXISTS Departments (
@@ -229,19 +218,8 @@ CREATE TABLE IF NOT EXISTS Publications (
 SELECT '=== TABLES CREATED ===' AS 'STATUS';
 SHOW TABLES;
 
--- Verify user account
-SELECT '=== USER ACCOUNT VERIFICATION ===' AS 'STATUS';
-SELECT User, Host FROM mysql.user WHERE User = 'shafi';
-
--- Display user permissions
-SELECT '=== USER PERMISSIONS ===' AS 'STATUS';
-SHOW GRANTS FOR 'shafi'@'%';
-
 -- Count tables created
 SELECT '=== TABLE COUNT ===' AS 'STATUS';
 SELECT COUNT(*) AS 'Total Tables Created' 
 FROM information_schema.tables 
 WHERE table_schema = 'university_records';
-
--- Final status message
-SELECT 'Setup Complete! Database ready for remote access.' AS 'FINAL STATUS';
