@@ -1,9 +1,5 @@
 # Database Management System
 # 🏫 University Record Management System (URMS)
-
-**Course:** CSCK542 — Databases and Information Systems  
-**Submitted by Group B**  
-**Word Count:** 1,498  
 ---
 
 ## 📘 Project Overview
